@@ -1,4 +1,3 @@
-## Nginx Configuration
 
 server
 {
