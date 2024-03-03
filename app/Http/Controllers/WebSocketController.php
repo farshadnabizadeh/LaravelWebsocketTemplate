@@ -24,10 +24,11 @@ class WebSocketController extends Controller implements MessageComponentInterfac
 
     public function onMessage(ConnectionInterface $from, $msg)
     {
-        echo "Received message: $msg\n";
         foreach ($this->clients as $client) {
-            $client->send($msg);
-            echo "Sent message to client\n";
+            if ($from !== $client) {
+                // The sender is not the receiver, send to each client connected
+                $client->send($msg);
+            }
         }
     }
 
