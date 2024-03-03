@@ -26,7 +26,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            conn = new WebSocket('wss://healthandtourismturkey.com/ws');
+            var conn = new WebSocket('wss://healthandtourismturkey.com/ws');
             var chatForm = $('#chatForm');
             var userMessage = $("#message");
             var msgList = $('.msg-list');
