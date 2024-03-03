@@ -1,11 +1,11 @@
 
-server
-{
-    listen 80;
-		listen 443 ssl http2;
-    server_name healthandtourismturkey.com;
-    index index.php index.html index.htm default.php default.htm default.html;
-    root /www/wwwroot/healthandtourismturkey.com/public;
+#server
+#{
+    #listen 80;
+		#listen 443 ssl http2;
+    #server_name healthandtourismturkey.com;
+    #index index.php index.html index.htm default.php default.htm default.html;
+    #root /www/wwwroot/healthandtourismturkey.com/public;
 
     if ($server_port !~ 443){
         rewrite ^(/.*)$ https://$host$1 permanent;
