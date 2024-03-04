@@ -6,6 +6,61 @@
     <title>Chat</title>
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .row {
+            overflow-y: auto;
+        }
+
+        .msg-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            background-color: #333;
+            border: none;
+            color: #fff;
+        }
+
+        input[type="text"] {
+            border-bottom: 1px solid #555;
+        }
+
+        input[type="submit"] {
+            background-color: #555;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #777;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container">
@@ -23,6 +78,7 @@
             </div>
         </form>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
