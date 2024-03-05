@@ -64,8 +64,9 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <ul class="msg-list">
+        <div class="row" style="width: 100%; !important">
+            <ul class="msg-list" style="width: 100%; !important">
+
             </ul>
         </div>
         <form method="post" id="chatForm">
@@ -90,17 +91,34 @@
                 e.preventDefault();
                 var message = userMessage.val();
                 conn.send(message);
-                msgList.prepend("<li style='color:blue;'>" + message + "</li>");
+                msgList.prepend(`
+                <li style='width:100%;display:flex;justify-content: start;'>
+                    <div style='width:50%;border-radius:10px;margin:10px 0;text-align:center;padding:10px 20px;color:#ffffff;background-color:#3364FF;'>
+                        ${message}
+                    </div>
+                </li>
+                `);
             });
             conn.onopen = function(e) {
                 console.log("Connection stablished");
             }
             conn.onmessage = function(e) {
                 console.log(e.data);
-                msgList.prepend("<li style='color:red;'>" + e.data + "</li>");
+                msgList.prepend(
+                    `
+                    <li style='width:100%;display:flex;justify-content: end;'>
+                        <div style='width:50%;border-radius:10px;margin:10px 0;text-align:center;padding:10px 20px;color:#ffffff;background-color:#c8173f;'>
+                            ${e.data}
+                        </div>
+                    </li>
+                `
+                );
+
             }
         });
 
     </script>
 </body>
 </html>
+{{-- msgList.prepend("<li style='width:100%;'>" + message + "</li>");  --}}
+{{-- msgList.prepend("<li style='color:red;'>" + e.data + "</li>");  --}}
